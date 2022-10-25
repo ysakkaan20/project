@@ -1,0 +1,50 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "this is the final 1st project for the advanced tack for web course with udacity",
+  "main": "index.ts",
+  "module": "esnext",
+  "scripts": {
+    "jasmine": "jasmine",
+    "test": "npm run build && npm run jasmine",
+    "start": "nodemon src/index.ts",
+    "build": "tsc ",
+    "lint": "eslint . --ext .ts",
+    "prettier": "prettier --config .prettierrc './src/**/*.ts' --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ysakkaan20/project.git"
+  },
+  "author": "me:D",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ysakkaan20/project/issues"
+  },
+  "homepage": "https://github.com/ysakkaan20/project#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "http-errors": "^2.0.0",
+    "node-cache": "^5.1.2",
+    "nodemon": "^2.0.20",
+    "sharp": "^0.31.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.14",
+    "@types/http-errors": "^1.8.2",
+    "@types/jasmine": "^4.3.0",
+    "@types/node": "^18.11.4",
+    "@types/node-cache": "^4.2.5",
+    "@types/sharp": "^0.31.0",
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
+    "@typescript-eslint/parser": "^5.41.0",
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jasmine": "^4.4.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "prettier": "^2.7.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  }
+}
