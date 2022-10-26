@@ -1,10 +1,13 @@
 import express from 'express'
 import imageResize from '../../utilities/imageResize'
 import cache from '../../utilities/cache'
+import validator from '../../utilities/validator'
 const images = express.Router()
 
-images.get('/', cache, imageResize, (req, res) => {
-  res.sendFile(res.locals.user)
+images.get('/', validator, cache, imageResize, (req, res) => {
+  const query = res.locals.query
+
+  res.sendFile(query.outputImagePath)
 })
 
 export default images

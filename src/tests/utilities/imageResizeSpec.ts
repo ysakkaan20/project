@@ -1,47 +1,24 @@
-import * as resize from '../../utilities/imageResize'
-
-describe('checkSize should check if the string of width and hieght is a number to convet it ', () => {
-  it('should return true since we sent both real numbers as strings', () => {
-    const data = resize.checkSize({
-      name: 'filename',
-      height: '1234',
-      width: '465'
+import { resizeImage } from '../../utilities/imageResize'
+import { getResizeData } from '../../utilities/validator'
+describe('resizeImage should test the functionalty of resize method ', () => {
+  const query = getResizeData({
+    name: 'fjord',
+    height: '1234',
+    width: '465'
+  })
+  it('should retuen true after resize the image successfully', function () {
+    return resizeImage(query).then(function (result) {
+      expect(result).toEqual(true)
     })
-    expect(data).toEqual(true)
   })
-  it('should return false cuz we send one number as string and the other is negative number ', () => {
-    const data = resize.checkSize({
-      name: 'filename',
-      height: '1234',
-      width: '-465'
+  const query2 = getResizeData({
+    name: 'image',
+    height: '1234',
+    width: '465'
+  })
+  it('should should retuen false cuz it faild to prossess the image cuz its not exsisted', function () {
+    return resizeImage(query2).catch(function (result) {
+      expect(result).toEqual(false)
     })
-    expect(data).toEqual(false)
-  })
-  it('should return false cuz we send some letters  and the other is negative number ', () => {
-    const data = resize.checkSize({
-      name: 'filename',
-      height: 'word',
-      width: '-465'
-    })
-    expect(data).toEqual(false)
-  })
-  it('should return false cuz we send some letters  and the other is postive  number ', () => {
-    const data = resize.checkSize({
-      name: 'filename',
-      height: 'word',
-      width: '400'
-    })
-    expect(data).toEqual(false)
-  })
-})
-describe('checkImage should check if there is an image with the name provieded', () => {
-  it('should return true since we sent a real image name ', () => {
-    const data = resize.checkImage('fjord')
-    expect(data).toEqual(true)
-  })
-
-  it('should return false since we sent a not an  image name ', () => {
-    const data = resize.checkImage('image')
-    expect(data).toEqual(false)
   })
 })
